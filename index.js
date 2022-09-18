@@ -1,5 +1,5 @@
 
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 const consoleTable = require('console.table');
 
 //Holds connection info
