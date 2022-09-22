@@ -1,11 +1,10 @@
-
 const mysql = require('mysql2');
-const consoleTable = require('console.table');
+const consoleTable =require('console.table');
 
 //Holds connection info
 const connectionDetails = require('./assets/constants/connectionDetail.js');
 //All prompts programs
-const prompts = require('./assets/prompt.js');
+const prompts = require('./prompt.js');
 //Used for  main menu choices
 const mainMenuChoices = require('./assets/constants/mainMenuChoice.js');
 
