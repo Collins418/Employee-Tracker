@@ -1,9 +1,6 @@
 //program prompt
-
 const inquirer =require('inquirer');
-
-
-const mainMenuChoice = require('./assets/constants/mainMenuChoice.js');
+const mainMenuChoice = require('./constants/mainMenuChoice.js');
 
 const [DEPARTMENT_TABLE, ROLE_TABLE, EMPLOYEE_TABLE] = mainMenuChoice.tables;
 const QUIT = mainMenuChoice.quit;
