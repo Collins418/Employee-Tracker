@@ -1,4 +1,4 @@
-// remember to add to main menu and index
+// remember to add to main menu /index and quit area 
 const mainMenuChoice = {
     tables: ['Departments', 'Roles', 'Employees'],
     departmentActions: ['Add department', 'View departments', 'View utilized budget of a department', 'Delete department'],

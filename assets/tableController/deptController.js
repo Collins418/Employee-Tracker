@@ -1,6 +1,6 @@
 const tableController = require('./tablecontroller');
 
-//For department
+//Foe dept area
 const deptController = new tableController('department');
 
 deptController.selectWithAlias = async function() {
@@ -16,5 +16,5 @@ deptController.selectWithAlias = async function() {
     process.exit(1);
   }
 }
-
+// verify that dept part section
 module.exports = deptController;
