@@ -2,12 +2,11 @@
 
 ## Description
 ```
-`Your Challenge this week is to build a command-line application ``
-from scratch to manage
- a company's employee database, using Node.js, Inquirer, and MySQL2. `Developers frequently have to create interfaces that allow non-developers to easily view` 
- and interact with information stored in databases. `
- `These interfaces are called content management systems (CMS).`
-© 2020 - 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+A command line application to manage the Departments, Roles and Employees of a company.
+
+All information is stored, retrieved and modified using MySQL.
+
+A user story and acceptance criteria were provided for this assignment, but no starter code was given.
 ```
 
 
