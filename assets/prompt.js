@@ -1,15 +1,15 @@
 //program prompt
-const inquirer =require('inquirer');
+
 const mainMenuChoice = require('./constants/mainMenuChoice.js');
 
 const [DEPARTMENT_TABLE, ROLE_TABLE, EMPLOYEE_TABLE] = mainMenuChoice.tables;
 const QUIT = mainMenuChoice.quit;
 
 // all prompt functions 
-const prompts = {};
+const prompt = {};
 
 //Main Menu area
-prompts.mainMenu = async () => {
+prompt.mainMenu = async () => {
   const mainMenuChoice = await inquirer.prompt([
     {
       type: 'list',
@@ -55,7 +55,7 @@ prompts.mainMenu = async () => {
 }
 
 //new dept area
-prompts.askDepartmentInfo = async () => {
+prompt.askDepartmentInfo = async () => {
   const departmentInfo = await inquirer.prompt([
     {
       type: 'input',
@@ -86,7 +86,7 @@ prompts.askDepartmentBudgetToView = async (departments) => {
 }
 
 //deleting department info
-prompts.askDeleteDepartment = async (departments) => {
+prompt.askDeleteDepartment = async (departments) => {
   const departmentChoice = await inquirer.prompt([
     {
       type: 'list',
@@ -101,7 +101,7 @@ prompts.askDeleteDepartment = async (departments) => {
 }
 
 //new role create area
-prompts.askRoleInfo = async (departments) => {
+prompt.askRoleInfo = async (departments) => {
   const roleInfo = await inquirer.prompt([
     {
       type: 'input',
@@ -143,7 +143,7 @@ prompts.askRoleInfo = async (departments) => {
   return roleInfo;
 }
 //delete area
-prompts.askDeleteRole = async (roles) => {
+prompt.askDeleteRole = async (roles) => {
   const roleChoice = await inquirer.prompt([
     {
       type: 'list',
@@ -158,7 +158,7 @@ prompts.askDeleteRole = async (roles) => {
 }
 
 //new employee create area
-prompts.askEmployeeInfo = async (roles, employees) => {
+prompt.askEmployeeInfo = async (roles, employees) => {
   const employeeInfo = await inquirer.prompt([
     {
       type: 'input',
@@ -200,7 +200,7 @@ prompts.askEmployeeInfo = async (roles, employees) => {
   return employeeInfo;
 }
 
-prompts.askManagerToView = async (managers) => {
+prompt.askManagerToView = async (managers) => {
   const managerChoice = await inquirer.prompt([
     {
       type: 'list',
@@ -214,7 +214,7 @@ prompts.askManagerToView = async (managers) => {
   return managerChoice.manager;
 }
 //delete area
-prompts.askDeleteEmployee = async (employees) => {
+prompt.askDeleteEmployee = async (employees) => {
   const employeeChoice = await inquirer.prompt([
     {
       type: 'list',
@@ -229,7 +229,7 @@ prompts.askDeleteEmployee = async (employees) => {
 }
 
 //updating employee's role
-prompts.askUpdateEmployeeRole = async (employees, roles) => {
+prompt.askUpdateEmployeeRole = async (employees, roles) => {
   const updateEmployeeRoleInfo = await inquirer.prompt([
     {
       type: 'list',
@@ -256,7 +256,7 @@ prompts.askUpdateEmployeeRole = async (employees, roles) => {
   return updateEmployeeRoleInfo;
 }
 
-prompts.askUpdateEmployeeManager = async (employees) => {
+prompt.askUpdateEmployeeManager = async (employees) => {
   const updateEmployeeManagerInfo = await inquirer.prompt([
     {
       type: 'list',
@@ -288,4 +288,4 @@ prompts.askUpdateEmployeeManager = async (employees) => {
   return updateEmployeeManagerInfo;
 }
 
-module.exports = prompt;
+module.exports=prompt;

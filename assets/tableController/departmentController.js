@@ -1,9 +1,9 @@
-const tableController = require('./tablecontroller');
+const TableController = require('./TableController.js');
 
 //Foe dept area
-const deptController = new tableController('department');
+const deptController = new TableController('department');
 
-deptController.selectWithAlias = async function() {
+departmentController.selectWithAlias = async function() {
   try {
     this.checkConnection();
     const aliasQuery = `
@@ -17,4 +17,4 @@ deptController.selectWithAlias = async function() {
   }
 }
 // verify that dept part section
-module.exports = deptController;
+module.exports = departmentController;

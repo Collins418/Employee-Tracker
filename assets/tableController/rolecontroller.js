@@ -1,7 +1,7 @@
-const tableController = require('./tablecontroller.js');
+const TableController = require('./TableController.js');
 
 //For custom queries of table: role
-const roleController = new TableController('role');
+const roleController =newTablecontroller('role');
 
 roleController.selectJoinDepartment = async function(departmentTableName) {
   try {

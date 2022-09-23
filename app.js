@@ -1,18 +1,16 @@
-const mysql = require('mysql2');
-const consoleTable =require('console.table');
 
 //Holds connection info
-const connectionDetails = require('./assets/constants/connectionDetail.js');
+const connectionDetails =require('./assets/constants/connectionDetail.js');
 //All prompts programs
-const prompts = require('./prompt.js');
+const prompts =require('./assets/prompt.js');
 //Used for  main menu choices
-const mainMenuChoices = require('./assets/constants/mainMenuChoice.js');
+const mainMenuChoices =require('./assets/constants/mainMenuChoice.js');
 
 //Database connect
 let connection;
 
-const departmentTable = require('./assets/tableController/deptController.js')
-const roleTable = require('./assets/tableController/rolecontroller.js');
+const departmentTable = require('./assets/tableController/departmentController.js')
+const roleTable = require('./assets/tableController/roleController.js');
 const employeeTable = require('./assets/tableController/employeeController.js');
 
 //Starts app.

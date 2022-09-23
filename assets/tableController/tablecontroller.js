@@ -1,23 +1,23 @@
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 
 //table area
-class tableController {
+class TableController {
   constructor(name) {
     this.name = mysql.escapeId(name);
   }
 }
 
-tableController.prototype.setConnection = function(connection) {
+TableController.prototype.setConnection = function(connection) {
   this.connection = connection;
 }
 
-tableController.prototype.checkConnection = function() {
+TableController.prototype.checkConnection = function() {
   if (!this.connection) {
-    throw new Error(`No connection set for tableController of: ${this.name}`);
+    throw new Error(`No connection set for TableController of: ${this.name}`);
   }
 }
 
-tableController.prototype.insert = async function(data) {
+TableController.prototype.insert = async function(data) {
   try {
     this.checkConnection();
     const insertQuery = `INSERT INTO ${this.name} SET ?`;
@@ -28,7 +28,7 @@ tableController.prototype.insert = async function(data) {
   }
 }
 
-tableController.prototype.selectAll = async function() {
+TableController.prototype.selectAll = async function() {
   try {
     this.checkConnection();
     const selectQuery = `SELECT * FROM ${this.name}`;
@@ -41,7 +41,7 @@ tableController.prototype.selectAll = async function() {
   }
 }
 
-tableController.prototype.update = async function(set, identifier) {
+TableController.prototype.update = async function(set, identifier) {
   try {
     const updateQuery = `
       UPDATE ${this.name}
@@ -55,7 +55,7 @@ tableController.prototype.update = async function(set, identifier) {
   }
 }
 
-tableController.prototype.delete = async function(id) {
+TableController.prototype.delete = async function(id) {
   try {
     const deleteQuery = `
       DELETE FROM ${this.name}
@@ -69,4 +69,4 @@ tableController.prototype.delete = async function(id) {
   }
 }
 
-module.exports = tableController;
+module.exports = TableController;
