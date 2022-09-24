@@ -1,20 +1,36 @@
-const inquirer = require("inquirer")
-const mysql = require("mysql")
-const cTable = require('console.table');
+//const inquirer = require('inquirer');
+//const mysql = require('mysql');
+//const cTable = require('console.table');
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "employee_db"
-  });
+//const connection = mysql.createConnection({
+    //host: "localhost",
+    //user: "root",
+    //password: "",
+    //database: "employee_trackerdb"
+ // });//
 
 
 //connect area
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'employee_trackerdb',
+  
+
+  
+});
+
+
+
 connection.connect(function(err) {
-    if (err) throw err
-    console.log("Connected as Id" + connection.threadId)
-    startPrompt();
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+
+  console.log('connected as id ' + connection.threadId);
 });
 //prompt area
 function startPrompt() {
@@ -63,58 +79,58 @@ function startPrompt() {
               break;
     
             }
-    })
+    });
 }
 //Employee area all
 function viewAllEmployees() {
     connection.query("SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(e.first_name, ' ' ,e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department on department.id = role.department_id left join employee e on employee.manager_id = e.id;", 
     function(err, res) {
-      if (err) throw err
-      console.table(res)
-      startPrompt()
-  })
+      if (err) throw err;
+      console.table(res);
+      startPrompt();
+  });
 }
 //= Roles area ALL
 function viewAllRoles() {
   connection.query("SELECT employee.first_name, employee.last_name, role.title AS Title FROM employee JOIN role ON employee.role_id = role.id;", 
   function(err, res) {
-  if (err) throw err
-  console.table(res)
-  startPrompt()
-  })
+  if (err) throw err;
+  console.table(res);
+  startPrompt();
+  });
 }
 //Dept area ALL
 function viewAllDepartments() {
   connection.query("SELECT employee.first_name, employee.last_name, department.name AS Department FROM employee JOIN role ON employee.role_id = role.id JOIN department ON role.department_id = department.id ORDER BY employee.id;", 
   function(err, res) {
-    if (err) throw err
-    console.table(res)
-    startPrompt()
-  })
+    if (err) throw err;
+    console.table(res);
+    startPrompt();
+  });
 }
 
 //add role area
 var roleArr = [];
 function selectRole() {
   connection.query("SELECT * FROM role", function(err, res) {
-    if (err) throw err
+    if (err) throw err;
     for (var i = 0; i < res.length; i++) {
       roleArr.push(res[i].title);
     }
 
-  })
+  });
   return roleArr;
 }
 //add employee area
 var managersArr = [];
 function selectManager() {
   connection.query("SELECT first_name, last_name FROM employee WHERE manager_id IS NULL", function(err, res) {
-    if (err) throw err
+    if (err) throw err;
     for (var i = 0; i < res.length; i++) {
       managersArr.push(res[i].first_name);
     }
-
-  })
+    
+  });
   return managersArr;
 }
 //add employee area
@@ -153,8 +169,8 @@ function addEmployee() {
             choices: selectManager()
         }
     ]).then(function (val) {
-      var roleId = selectRole().indexOf(val.role) + 1
-      var managerId = selectManager().indexOf(val.choice) + 1
+      var roleId = selectRole().indexOf(val.role) + 1;
+      var managerId = selectManager().indexOf(val.choice) + 1;
       connection.query("INSERT INTO employee SET ?", 
       {
           first_name: val.firstName,
@@ -163,19 +179,19 @@ function addEmployee() {
           role_id: roleId
           
       }, function(err){
-          if (err) throw err
-          console.table(val)
-          startPrompt()
-      })
+          if (err) throw err;
+          console.table(val);
+          startPrompt();
+      });
 
-  })
+  });
 }
 //update employee area
   function updateEmployee() {
     connection.query("SELECT employee.last_name, role.title FROM employee JOIN role ON employee.role_id = role.id;", function(err, res) {
     // console.log(res)
-     if (err) throw err
-     console.log(res)
+     if (err) throw err;
+     console.log(res);
     inquirer.prompt([
           {
             name: "lastName",
@@ -196,7 +212,7 @@ function addEmployee() {
             choices: selectRole()
           },
       ]).then(function(val) {
-        var roleId = selectRole().indexOf(val.role) + 1
+        var roleId = selectRole().indexOf(val.role) + 1;
         connection.query("UPDATE employee SET WHERE ?", 
         {
           last_name: val.lastName
@@ -207,10 +223,10 @@ function addEmployee() {
            
         }, 
         function(err){
-            if (err) throw err
-            console.table(val)
-            startPrompt()
-        })
+            if (err) throw err;
+            console.table(val);
+            startPrompt();
+        });
   
     });
   });
@@ -238,7 +254,7 @@ function addRole() {
               if (salary < 0) {
                 return 'OH NO !Salary cannot be negative.';
               } else if (salary > 99999999.99) {
-                return 'OH NO! Salary is too long (Max salary: 99999999.99)'
+                return 'OH NO! Salary is too long (Max salary: 99999999.99)';
               } else {
                 return true;
               }
@@ -257,15 +273,15 @@ function addRole() {
               salary: res.Salary,
             },
             function(err) {
-                if (err) throw err
+                if (err) throw err;
                 console.table(res);
                 startPrompt();
             }
-        )
+        );
 
     });
   });
-  }
+}
 //add dept
 function addDepartment() { 
 
@@ -288,10 +304,12 @@ function addDepartment() {
             
             },
             function(err) {
-                if (err) throw err
+                if (err) throw err;
                 console.table(res);
                 startPrompt();
             }
-        )
-    })
+        );
+    });
   }
+
+ // module.exports = init();//

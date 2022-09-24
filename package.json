@@ -1,5 +1,30 @@
 {
   "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.0.0",
     "mysql": "^2.18.1"
-  }
+  },
+
+    "jshint.options": {
+      "esversion": 6
+    },
+ 
+    
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "track employee info",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collins418/Employee-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Collins418/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Collins418/Employee-Tracker#readme"
 }
