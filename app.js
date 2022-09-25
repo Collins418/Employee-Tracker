@@ -9,15 +9,14 @@
     //database: "employee_trackerdb"
  // });//
 
-
 //connect area
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
+const mysql = require('mysql2');
+const connection = mysql.createConnection({
+  host     : '127.0.0.1',
   user     : 'root',
   password : '',
   database : 'employee_trackerdb',
-  
+  port     : '3000' 
 
   
 });
