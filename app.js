@@ -1,36 +1,31 @@
-//const inquirer = require('inquirer');
 //const mysql = require('mysql');
-//const cTable = require('console.table');
+//const inquirer = require('inquirer');//
 
 //const connection = mysql.createConnection({
-    //host: "localhost",
-    //user: "root",
-    //password: "",
-    //database: "employee_trackerdb"
- // });//
-
-//connect area
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-  host     : '127.0.0.1',
-  user     : 'root',
-  password : '',
-  database : 'employee_trackerdb',
-  port     : '3000' 
-
-  
-});
+  //host: 'localhost',
+  //user: 'root',
+ // password: '',
+  //database: 'employee-trackerdb'
+//});
 
 
+//const connection = mysql.createConnection({
+ // host: 'localhost',
+ // port: 3306,
+ // user: 'root',
+// Insert your MySQL password here between the tick marks, otherwise the application will not work!!!!!
+  //password: '',
+ // database: 'employee-trackerdb',
+//});//
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
+//connection.connect((err) => {
+  //if (err) {
+  //  console.error('error connecting: ' + err.stack);
+  //  return;
+  //}
 
-  console.log('connected as id ' + connection.threadId);
-});
+ // console.log('connected as id ' + connection.threadId);
+//});
 //prompt area
 function startPrompt() {
     inquirer.prompt([

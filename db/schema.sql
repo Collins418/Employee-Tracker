@@ -1,8 +1,8 @@
 /* remember to capitalize and https://www.w3schools.com/sql/*/
 
-CREATE DATABASE employee_db;
+CREATE DATABASE employee-trackerdb;
 
-USE employee_db;
+USE employee-trackerdb;
 
 CREATE TABLE department (
 	`id` INTEGER NOT NULL AUTO_INCREMENT,

@@ -1,17 +1,19 @@
 {
   "dependencies": {
     "console.table": "^0.10.0",
-        "inquirer": "^9.1.2",
-        "jshint": "^2.13.5",
-        "mysql2": "^2.3.3"
+    "inquirer": "^9.1.2",
+    "jshint": "^2.13.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   },
-  
   "name": "employee-tracker",
   "version": "1.0.0",
   "description": "track employee info",
   "main": "app.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
