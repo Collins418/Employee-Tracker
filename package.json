@@ -9,11 +9,11 @@
   "name": "employee-tracker",
   "version": "1.0.0",
   "description": "track employee info",
-  "main": "app.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
