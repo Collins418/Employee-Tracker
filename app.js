@@ -10,13 +10,13 @@
 
 
 //const connection = mysql.createConnection({
- // host: 'localhost',
+ //host: 'localhost',
  // port: 3306,
- // user: 'root',
+  //user: 'root',
 // Insert your MySQL password here between the tick marks, otherwise the application will not work!!!!!
-  //password: '',
- // database: 'employee-trackerdb',
-//});//
+ // password: '',
+ //database: 'employee-trackerdb',
+//});
 
 //connection.connect((err) => {
   //if (err) {
@@ -26,6 +26,7 @@
 
  // console.log('connected as id ' + connection.threadId);
 //});
+
 //prompt area
 function startPrompt() {
     inquirer.prompt([
