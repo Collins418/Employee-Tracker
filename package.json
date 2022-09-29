@@ -9,7 +9,7 @@
   "name": "employee-tracker",
   "version": "1.0.0",
   "description": "track employee info",
-  "main": "index.js",
+  "main": "app.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Collins418/Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/Collins418/Employee-Tracker#readme"
+  "homepage": "https://github.com/Collins418/Employee-Tracker#readme",
+  "devDependencies": {
+    "@types/mysql": "^2.15.21"
+  }
 }
