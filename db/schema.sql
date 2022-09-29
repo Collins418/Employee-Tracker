@@ -1,41 +1,36 @@
 /* remember to capitalize and https://www.w3schools.com/sql/*/
+DROP DATABASE IF EXISTS employeetrackerdb;
 
-CREATE DATABASE employee-trackerdb;
+CREATE DATABASE employeetrackerdb;
 
-USE employee-trackerdb;
+USE employeetrackerdb;
 
+/*  Creates department table*/
 CREATE TABLE department (
-	`id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(30) NOT NULL,
-    PRIMARY KEY(`id`)
+    id INT AUTO_INCREMENT,
+    name VARCHAR(30),
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE role (
-	`id` INTEGER NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(30) NOT NULL,
-    `salary` DECIMAL(10,2) NOT NULL,
-    `department_id` INTEGER,
-    PRIMARY KEY(`id`),
-    FOREIGN KEY (`department_id`) 
-		REFERENCES department(`id`)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+
+/* Creates roles table*/
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT,
+    title VARCHAR(30),
+    salary DECIMAL,
+    department_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(department_id) REFERENCES department(id)
 );
 
+/* Creates  table*/
 CREATE TABLE employee (
-	`id` INTEGER NOT NULL AUTO_INCREMENT,
-    `first_name` VARCHAR(30) NOT NULL,
-    `last_name` VARCHAR(30) NOT NULL,
-    `role_id` INTEGER,
-    `manager_id` INTEGER,
-    PRIMARY KEY(`id`),
-    FOREIGN KEY (`role_id`) 
-		REFERENCES role(`id`)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE,
-    FOREIGN KEY (`manager_id`) 
-		REFERENCES employee(`id`)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    role_id INT,
+    manager_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(role_id) REFERENCES roles(id),
+    FOREIGN KEY(manager_id) REFERENCES employee(id)
 );
-
